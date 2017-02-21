@@ -3,7 +3,7 @@
 ## Lua Love
 The [Lua Love Package](https://sublime.wbond.net/packages/Lua%20Love) provides syntax highlighting, snippets, autocompletion and build rules.
 
-* Install [Package Control}(https://packagecontrol.io/installation), restart Sublime.
+* Install [Package Control](https://packagecontrol.io/installation), restart Sublime.
 * Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> to open the *command palette* and use the *Package Control: Install Package* command.
 * Wait until another input field appears and install the *Lua Love* package.
 * In the *command palette* enable syntax highlighting with *Set Syntax: Lua (Love)*.
