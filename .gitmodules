@@ -1,0 +1,6 @@
+[submodule "libs/lume"]
+	path = libs/lume
+	url = https://github.com/rxi/lume/
+[submodule "libs/hump"]
+	path = libs/hump
+	url = https://github.com/vrld/hump
