@@ -1,17 +1,17 @@
 Player = Class {}
 
 -- Constants for position on screen
-Player.positionTopLeft = 1
-Player.positionTopRight = 2
-Player.positionBottomLeft = 3
-Player.positionBottomRight = 4
+Player.positionBottomRight = 1
+Player.positionBottomLeft = 2
+Player.positionTopLeft = 3
+Player.positionTopRight = 4
 
 function Player:init(name, color, screenPosition)
   self.name = name
   self.color = color
   self.screenPosition = screenPosition
   self:initPosition()
-  self.paddle = Paddle(self.center, color)
+  self.paddle = Paddle(self.center, color, screenPosition)
 end
 
 function Player:initPosition()
@@ -28,8 +28,8 @@ function Player:initPosition()
   end
 end
 
-function Player:updatePosition(value)
-  self.paddle:updatePosition(value)
+function Player:inputchanged(value)
+  self.paddle:inputchanged(value)
 end
 
 function Player:update(dt)
@@ -38,7 +38,10 @@ end
 
 function Player:draw()
   love.graphics.setColor(self.color)
-  love.graphics.circle("fill", self.center.x, self.center.y, 30)
-  --love.graphics.print(self.name .. " x: " .. self.center.x .. " y: " .. self.center.y, self.center.x, self.center.y)
+  love.graphics.circle("fill", self.center.x, self.center.y, 50)
+
+  love.graphics.setColor(Colors.black)
+  love.graphics.print(self.name, self.center.x, self.center.y)
+
   self.paddle:draw()
 end

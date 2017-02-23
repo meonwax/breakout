@@ -39,10 +39,12 @@ end
 
 function love.mousemoved(x, y, dx, dy, istouch)
   local value = lume.round((x - center.x) / center.x * 100)
-  players[mousePlayer]:updatePosition(value)
+  players[mousePlayer]:inputchanged(value)
 end
 
+-- Only for testing
 function love.mousereleased(x, y, button, istouch)
+  love.mouse.setPosition(center.x, center.y)
   mousePlayer = mousePlayer % #players + 1
   print("mousePlayer: " .. mousePlayer)
 end
