@@ -4,11 +4,12 @@ Class = require "libs.hump.class"
 Colors = require "utils.colors"
 
 -- Classes
+require "classes.player"
 require "classes.paddle"
 
 local center = {x = love.graphics.getWidth() / 2, y = love.graphics.getHeight() / 2}
 local mousePlayer = 1
-local paddles = {}
+local players = {}
 
 function love.load()
   initMouse()
@@ -22,28 +23,28 @@ function initMouse()
 end
 
 function createPlayers()
-  lume.push(paddles, Paddle(100, 20, Colors.green, Paddle.positionTopLeft, "Paddle One"))
-  lume.push(paddles, Paddle(100, 20, Colors.yellow, Paddle.positionTopRight, "Paddle Two"))
-  lume.push(paddles, Paddle(100, 20, Colors.blue, Paddle.positionBottomLeft, "Paddle Three"))
-  lume.push(paddles, Paddle(100, 20, Colors.red, Paddle.positionBottomRight, "Paddle Four"))
+  lume.push(players, Player("Evil", Colors.green, Player.positionTopLeft))
+  lume.push(players, Player("Ugly", Colors.yellow, Player.positionTopRight))
+  lume.push(players, Player("Noisy", Colors.blue, Player.positionBottomLeft))
+  lume.push(players, Player("Vulgar", Colors.red, Player.positionBottomRight))
 end
 
 function love.update(dt)
-  lume.each(paddles, "update", dt)
-  print("mousePlayer: " .. mousePlayer)
+  lume.each(players, "update", dt)
 end
 
 function love.draw()
-  lume.each(paddles, "draw")
+  lume.each(players, "draw")
 end
 
 function love.mousemoved(x, y, dx, dy, istouch)
   local value = lume.round((x - center.x) / center.x * 100)
-  paddles[mousePlayer]:updatePosition(value)
+  players[mousePlayer]:updatePosition(value)
 end
 
 function love.mousereleased(x, y, button, istouch)
-  mousePlayer = mousePlayer % #paddles + 1
+  mousePlayer = mousePlayer % #players + 1
+  print("mousePlayer: " .. mousePlayer)
 end
 
 function love.keypressed(key, scanCode, isRepeat)
