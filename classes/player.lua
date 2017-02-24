@@ -16,13 +16,13 @@ end
 
 function Player:initPosition()
   if self.screenPosition == Player.positionTopLeft then
-    self.center = {x = 80, y = 80}
+    self.center = vector(80, 80)
   elseif self.screenPosition == Player.positionTopRight then
-    self.center = {x = love.graphics.getWidth() - 80, y = 80}
+    self.center = vector(love.graphics.getWidth() - 80, 80)
   elseif self.screenPosition == Player.positionBottomLeft then
-    self.center = {x = 80, y = love.graphics.getHeight() - 80}
+    self.center = vector(80, love.graphics.getHeight() - 80)
   elseif self.screenPosition == Player.positionBottomRight then
-    self.center = {x = love.graphics.getWidth() - 80, y = love.graphics.getHeight() - 80}
+    self.center = vector(love.graphics.getWidth() - 80, love.graphics.getHeight() - 80)
   else
     error("screenPosition value invalid")
   end
@@ -41,7 +41,7 @@ function Player:draw()
   love.graphics.circle("fill", self.center.x, self.center.y, 50)
 
   love.graphics.setColor(colors.black)
-  love.graphics.print(self.name, self.center.x, self.center.y)
+  love.graphics.print(self.name, self.center:unpack())
 
   self.paddle:draw()
 end

@@ -1,6 +1,7 @@
 -- Global includes
 lume = require "libs.lume.lume"
 class = require "libs.hump.class"
+vector = require "libs.hump.vector"
 colors = require "utils.colors"
 
 -- Classes
@@ -8,7 +9,7 @@ require "classes.player"
 require "classes.paddle"
 require "classes.ball"
 
-local center = {x = love.graphics.getWidth() / 2, y = love.graphics.getHeight() / 2}
+local center = vector(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2)
 local mousePlayer = 1
 local players = {}
 
@@ -18,7 +19,7 @@ function love.load()
 end
 
 function initMouse()
-  love.mouse.setPosition(center.x, center.y)
+  love.mouse.setPosition(center:unpack())
   love.mouse.setGrabbed(true)
   love.mouse.setVisible(false)
 end
@@ -45,7 +46,7 @@ end
 
 -- Only for testing
 function love.mousereleased(x, y, button, istouch)
-  love.mouse.setPosition(center.x, center.y)
+  love.mouse.setPosition(center:unpack())
   mousePlayer = mousePlayer % #players + 1
   print("mousePlayer: " .. mousePlayer)
 end

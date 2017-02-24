@@ -11,7 +11,7 @@ end
 function Paddle:inputchanged(value)
   assert(value >= -100 and value <= 100, "Value has to be within -100 and +100")
   self.controllerValue = value
-  print("controllerValue: " .. self.controllerValue)
+  -- print("controllerValue: " .. self.controllerValue)
 end
 
 function Paddle:update(dt)
@@ -21,7 +21,7 @@ function Paddle:draw()
   love.graphics.setColor(self.color)
 
   -- Move coordinate system root to the player's center
-  love.graphics.translate(self.center.x, self.center.y)
+  love.graphics.translate(self.center:unpack())
 
   -- Calculate the specific rotation addition dependening on the screen position
   local positionRotation = 90 * self.screenPosition
