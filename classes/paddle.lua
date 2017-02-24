@@ -1,4 +1,4 @@
-Paddle = Class {}
+Paddle = class {}
 
 function Paddle:init(center, color, screenPosition)
   self.dim = {width = 100, height = 20}

@@ -1,11 +1,12 @@
 -- Global includes
 lume = require "libs.lume.lume"
-Class = require "libs.hump.class"
-Colors = require "utils.colors"
+class = require "libs.hump.class"
+colors = require "utils.colors"
 
 -- Classes
 require "classes.player"
 require "classes.paddle"
+require "classes.ball"
 
 local center = {x = love.graphics.getWidth() / 2, y = love.graphics.getHeight() / 2}
 local mousePlayer = 1
@@ -23,10 +24,10 @@ function initMouse()
 end
 
 function createPlayers()
-  lume.push(players, Player("Evil", Colors.green, Player.positionTopLeft))
-  lume.push(players, Player("Ugly", Colors.yellow, Player.positionTopRight))
-  lume.push(players, Player("Noisy", Colors.blue, Player.positionBottomLeft))
-  lume.push(players, Player("Vulgar", Colors.red, Player.positionBottomRight))
+  lume.push(players, Player("Evil", colors.green, Player.positionTopLeft))
+  lume.push(players, Player("Ugly", colors.yellow, Player.positionTopRight))
+  lume.push(players, Player("Noisy", colors.blue, Player.positionBottomLeft))
+  lume.push(players, Player("Vulgar", colors.red, Player.positionBottomRight))
 end
 
 function love.update(dt)

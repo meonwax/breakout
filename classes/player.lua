@@ -1,4 +1,4 @@
-Player = Class {}
+Player = class {}
 
 -- Constants for position on screen
 Player.positionBottomRight = 1
@@ -40,7 +40,7 @@ function Player:draw()
   love.graphics.setColor(self.color)
   love.graphics.circle("fill", self.center.x, self.center.y, 50)
 
-  love.graphics.setColor(Colors.black)
+  love.graphics.setColor(colors.black)
   love.graphics.print(self.name, self.center.x, self.center.y)
 
   self.paddle:draw()
