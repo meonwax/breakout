@@ -12,10 +12,12 @@ require "classes.ball"
 local center = vector(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2)
 local mousePlayer = 1
 local players = {}
+local ball
 
 function love.load()
   initMouse()
   createPlayers()
+  ball = Ball(center)
 end
 
 function initMouse()
@@ -33,10 +35,12 @@ end
 
 function love.update(dt)
   lume.each(players, "update", dt)
+  ball:update(dt)
 end
 
 function love.draw()
   lume.each(players, "draw")
+  ball:draw()
 end
 
 function love.mousemoved(x, y, dx, dy, istouch)
