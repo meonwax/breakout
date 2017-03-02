@@ -9,7 +9,7 @@ The [Lua Love Package](https://sublime.wbond.net/packages/Lua%20Love) provides s
 * In the *command palette* enable syntax highlighting with *Set Syntax: Lua (Love)*.
 
 ## Build system
-You can use the simple build system that is provided in the project file `breakout.sublime-workspace`. Choose *Tools -> Build System -> Run with LÖVE*.
+You can use the simple build system that is provided in the project file `breakout.sublime-project`. Choose *Tools -> Build System -> Run with LÖVE*.
 Press <kbd>Ctrl</kbd>+<kbd>B</kbd> to run the game.
 
 ## Fixing Lua indenting
@@ -43,6 +43,9 @@ Paste the following snippet into that file:
 * Close all Sublime Text windows
 * Back in your file browser window, navigate up one directory then delete the *Cache* directory.
 * Start Sublime Text again and have fun.
+
+## EditorConfig
+To set proper formatter settings, install *EditorConfig* using *Package Control* and restart Sublime.
 
 ## References
 * https://love2d.org/wiki/Sublime_Text
