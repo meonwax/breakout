@@ -2,6 +2,7 @@ Ball = class {}
 
 function Ball:init(position)
   self.position = position
+  self.radius = 5
   self.velocity = vector(-200, -100)
 end
 
@@ -10,7 +11,7 @@ function Ball:update(dt)
 end
 
 function Ball:draw()
-  print("Ball position: " .. tostring(self.position))
+  -- print("Ball position: " .. tostring(self.position))
   love.graphics.setColor(colors.brown)
-  love.graphics.circle("fill", self.position.x, self.position.y, 5)
+  love.graphics.circle("fill", self.position.x, self.position.y, self.radius)
 end
