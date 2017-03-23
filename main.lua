@@ -2,6 +2,7 @@
 lume = require "libs.lume.lume"
 class = require "libs.hump.class"
 vector = require "libs.hump.vector"
+HC = require "libs.hardoncollider"
 colors = require "utils.colors"
 
 -- Classes
