@@ -6,17 +6,20 @@ HC = require "libs.hardoncollider"
 colors = require "utils.colors"
 
 -- Classes
+require "classes.playfield"
 require "classes.player"
 require "classes.paddle"
 require "classes.ball"
 
 local center = vector(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2)
 local mousePlayer = 1
+local playfield
 local players = {}
 local ball
 
 function love.load()
   initMouse()
+  playfield = Playfield()
   createPlayers()
   ball = Ball(center)
 end
@@ -35,11 +38,13 @@ function createPlayers()
 end
 
 function love.update(dt)
+  playfield:update(dt)
   lume.each(players, "update", dt)
   ball:update(dt)
 end
 
 function love.draw()
+  playfield:draw()
   lume.each(players, "draw")
   ball:draw()
 end
