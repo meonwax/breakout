@@ -34,7 +34,7 @@ function Paddle:getRotation()
   local degrees = ((self.controllerValue + positionRotation) + 45)
 
   -- Calculate rotation in radians
-  return degrees * math.pi / 180
+  return math.rad(degrees)
 end
 
 function Paddle:draw()
