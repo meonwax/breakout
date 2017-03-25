@@ -1,7 +1,7 @@
 Ball = class {}
 
 Ball.speed = 500
-Ball.radius = 5
+Ball.radius = 15
 
 function Ball:init(position)
   self.direction = vector(-2, -1):normalized() -- Set initial direction
