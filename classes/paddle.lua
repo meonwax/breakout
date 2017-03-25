@@ -10,6 +10,7 @@ function Paddle:init(playerCenter, color, screenPosition)
   self.color = color
   self.controllerValue = 0
   self.shape = HC.rectangle(self.position.x, self.position.y, self.dim.width, self.dim.height)
+  self.shape.type = "paddle"
 end
 
 function Paddle:initPosition()
