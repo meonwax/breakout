@@ -11,9 +11,16 @@ end
 function Ball:update(dt)
   local collisions = HC.collisions(self.shape)
   for otherShape, separatingVector in pairs(collisions) do
-    self.direction = vector(separatingVector.x, separatingVector.y):normalized()
+    self.direction = self:calculateReflectionVector(separatingVector)
+    break
   end
   self.shape:move((self.direction * dt * Ball.speed):unpack())
+end
+
+-- See http://math.stackexchange.com/questions/13261/how-to-get-a-reflection-vector
+function Ball:calculateReflectionVector(separatingVector)
+  local normalizedSeparatingVector = vector(separatingVector.x, separatingVector.y):normalized()
+  return self.direction - 2 * (self.direction * normalizedSeparatingVector) * normalizedSeparatingVector
 end
 
 function Ball:draw()
