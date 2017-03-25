@@ -10,7 +10,7 @@ function Paddle:init(playerCenter, color, screenPosition)
   self.color = color
   self.controllerValue = 0
   self.shape = HC.rectangle(self.position.x, self.position.y, self.dim.width, self.dim.height)
-  self.shape.type = "paddle"
+  self.shape.type = C.shapeTypePaddle
 end
 
 function Paddle:initPosition()
@@ -40,5 +40,5 @@ end
 
 function Paddle:draw()
   love.graphics.setColor(self.color)
-  self.shape:draw('fill')
+  self.shape:draw("fill")
 end

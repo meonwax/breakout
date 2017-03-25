@@ -14,6 +14,7 @@ end
 function Ball:update(dt)
   local collisions = HC.collisions(self.shape)
   for otherShape, separatingVector in pairs(collisions) do
+    print("Collision with " .. otherShape.type)
     self.direction = self:calculateReflectionVector(separatingVector)
     self:playSound(otherShape)
     break
@@ -29,11 +30,11 @@ end
 
 function Ball:draw()
   love.graphics.setColor(colors.brown)
-  self.shape:draw('fill')
+  self.shape:draw("fill")
 end
 
 function Ball:playSound(otherShape)
-  if otherShape.type == "paddle" then
+  if otherShape.type == C.shapeTypePaddle then
     love.audio.play(self.sfx.paddleHit)
   end
   love.audio.play(self.sfx.borderHit)

@@ -4,6 +4,7 @@ class = require "libs.hump.class"
 vector = require "libs.hump.vector"
 HC = require "libs.hardoncollider"
 colors = require "utils.colors"
+C = require "utils.constants"
 
 -- Classes
 require "classes.playfield"
@@ -33,10 +34,10 @@ function initMouse()
 end
 
 function createPlayers()
-  lume.push(players, Player("Evil", colors.green, Player.positionTopLeft))
-  lume.push(players, Player("Ugly", colors.yellow, Player.positionTopRight))
-  lume.push(players, Player("Noisy", colors.blue, Player.positionBottomLeft))
-  lume.push(players, Player("Vulgar", colors.red, Player.positionBottomRight))
+  lume.push(players, Player("Evil", colors.green, C.positionTopLeft))
+  lume.push(players, Player("Ugly", colors.yellow, C.positionTopRight))
+  lume.push(players, Player("Noisy", colors.blue, C.positionBottomLeft))
+  lume.push(players, Player("Vulgar", colors.red, C.positionBottomRight))
 end
 
 function love.update(dt)

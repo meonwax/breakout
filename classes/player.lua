@@ -1,11 +1,5 @@
 Player = class {}
 
--- Constants for position on screen
-Player.positionBottomRight = 1
-Player.positionBottomLeft = 2
-Player.positionTopLeft = 3
-Player.positionTopRight = 4
-
 function Player:init(name, color, screenPosition)
   self.name = name
   self.color = color
@@ -15,13 +9,13 @@ function Player:init(name, color, screenPosition)
 end
 
 function Player:initPosition()
-  if self.screenPosition == Player.positionTopLeft then
+  if self.screenPosition == C.positionTopLeft then
     self.center = vector(80, 80)
-  elseif self.screenPosition == Player.positionTopRight then
+  elseif self.screenPosition == C.positionTopRight then
     self.center = vector(love.graphics.getWidth() - 80, 80)
-  elseif self.screenPosition == Player.positionBottomLeft then
+  elseif self.screenPosition == C.positionBottomLeft then
     self.center = vector(80, love.graphics.getHeight() - 80)
-  elseif self.screenPosition == Player.positionBottomRight then
+  elseif self.screenPosition == C.positionBottomRight then
     self.center = vector(love.graphics.getWidth() - 80, love.graphics.getHeight() - 80)
   else
     error("screenPosition value invalid")

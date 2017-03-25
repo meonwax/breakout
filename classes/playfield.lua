@@ -8,6 +8,7 @@ function Playfield:init()
   self.borderBottom = HC.rectangle(0, love.graphics.getHeight() - Playfield.borderWidth, love.graphics.getWidth(), Playfield.borderWidth)
   self.borderLeft = HC.rectangle(0, Playfield.borderWidth, Playfield.borderWidth, love.graphics.getHeight() - Playfield.borderWidth * 2)
   self.borderRight = HC.rectangle(love.graphics.getWidth() - Playfield.borderWidth, Playfield.borderWidth, Playfield.borderWidth, love.graphics.getHeight() - Playfield.borderWidth * 2)
+  self.borderTop.type, self.borderBottom.type, self.borderLeft.type, self.borderRight.type = C.shapeTypeBorder, C.shapeTypeBorder, C.shapeTypeBorder, C.shapeTypeBorder
 end
 
 function Playfield:update(dt)
@@ -20,10 +21,10 @@ end
 
 function Playfield:drawBorders()
   love.graphics.setColor(colors.darkBlue)
-  self.borderTop:draw('fill')
-  self.borderBottom:draw('fill')
-  self.borderLeft:draw('fill')
-  self.borderRight:draw('fill')
+  self.borderTop:draw("fill")
+  self.borderBottom:draw("fill")
+  self.borderLeft:draw("fill")
+  self.borderRight:draw("fill")
 end
 
 function Playfield:drawBackground()
