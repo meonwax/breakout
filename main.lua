@@ -22,6 +22,8 @@ function love.load()
   playfield = Playfield()
   createPlayers()
   ball = Ball(center)
+  local startSound = love.audio.newSource("sfx/pacman-intro.mp3", "stream")
+  love.audio.play(startSound)
 end
 
 function initMouse()
