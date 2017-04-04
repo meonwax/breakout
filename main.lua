@@ -13,19 +13,45 @@ require "classes.player"
 require "classes.paddle"
 require "classes.ball"
 
+local port = 6001
+
 local center = vector(love.graphics.getWidth() / 2, love.graphics.getHeight() / 2)
 local mousePlayer = 1
 local playfield
 local players = {}
 local ball
+local server
 
 function love.load()
+  initServer()
   initMouse()
   playfield = Playfield()
   createPlayers()
   ball = Ball(center)
   local startSound = love.audio.newSource("sfx/pacman-intro.mp3", "stream")
   love.audio.play(startSound)
+end
+
+function initServer()
+  server = grease.udpServer()
+  server.handshake = "handshake"
+  server.callbacks.connect = onConnect
+  server.callbacks.disconnect = onDisconnect
+  server.callbacks.recv = onReceive
+  server:listen(port)
+end
+
+function onConnect(id)
+  print("Client " .. id .. " connected")
+end
+
+function onDisconnect(id)
+  print("Client " .. id .. " disconnected")
+end
+
+function onReceive(data, id)
+  print("Received data from " .. id .. ":")
+  print(data)
 end
 
 function initMouse()
@@ -42,6 +68,7 @@ function createPlayers()
 end
 
 function love.update(dt)
+  server:update(dt)
   playfield:update(dt)
   lume.each(players, "update", dt)
   ball:update(dt)
