@@ -28,11 +28,11 @@ function Paddle:update(dt)
 end
 
 function Paddle:getRotation()
-  -- Calculate the specific rotation addition dependening on the screen position
-  local positionRotation = 90 * self.screenPosition
+  -- Calculate the specific rotation addition depending on screen position
+  local positionRotation = (90 * self.screenPosition) + 45
 
   -- The rotation in degrees according to the controller value
-  local degrees = ((self.controllerValue + positionRotation) + 45)
+  local degrees = self.controllerValue + positionRotation
 
   -- Calculate rotation in radians
   return math.rad(degrees)
